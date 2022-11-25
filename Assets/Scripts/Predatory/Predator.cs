@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Predatory.States;
@@ -6,7 +5,7 @@ using UnityEngine;
 
 namespace Predatory{
     public class Predator : Entity{
-        public static readonly List<Entity> Predators = new ();
+        private static readonly List<Entity> Predators = new ();
 
         /// <summary>
         /// Base method used to get Predators in SightRange of baseEntity
@@ -44,7 +43,7 @@ namespace Predatory{
         }
 
         private void Start(){
-            CurrentState = new PredatorIdle(this);
+            CurrentState = new Idle(this);
         }
 
         private void OnEnable(){
@@ -53,6 +52,22 @@ namespace Predatory{
 
         private void OnDisable(){
             Predators.Remove(this);
+        }
+
+
+        public override int GetPreys(out List<Entity> inRange){
+            inRange = Prey.GetPreysInRange(this);
+            return inRange.Count;
+        }
+
+        public override int GetPredators(out List<Entity> inRange){
+            inRange = new List<Entity>();
+            return inRange.Count;
+        }
+
+        public override int GetFood(out List<Food> inRange){
+            inRange = Meat.GetFoodInRange(this);
+            return inRange.Count;
         }
     }
 }

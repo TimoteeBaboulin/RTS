@@ -136,3 +136,5 @@ MonoBehaviour:
   _sightRange: 10
   _attackRange: 1.5
   _currentHealth: 10
+  _maxStomach: 10
+  _currentStomach: 10
