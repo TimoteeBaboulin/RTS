@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public abstract class Food : MonoBehaviour{
-    public int Nourishment;
-    public float EatTime;
+namespace Predatory{
+    public abstract class Food : MonoBehaviour{
+        public int Nourishment;
+        public float EatTime;
 
-    public Vector3 Position => transform.position;
+        public Vector3 Position => transform.position;
+    }
 }

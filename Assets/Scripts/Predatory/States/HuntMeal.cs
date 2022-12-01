@@ -17,11 +17,11 @@ namespace Predatory.States{
         public override void Exit(){ }
 
         public override void CheckTransitions(){
-            if (_context.GetPredators(out var predators) > 0){
+            if (_context.IsPredatorClose){
                 _context.CurrentState = new RunAway(_context);
                 return;
             }
-            
+
             if (_target == null){
                 if (_context.GetFood(out var foods) > 0)
                     _context.CurrentState = new HuntMeal(_context, foods[0]);
@@ -30,8 +30,9 @@ namespace Predatory.States{
                 else
                     _context.CurrentState = new Idle(_context);
             }
-            else if (Vector3.Distance(_context.Position, _target.Position) <= _context.AttackRange)
+            else if (Vector3.Distance(_context.Position, _target.Position) <= _context.AttackRange){
                 _context.CurrentState = new EatMeal(_context, _target);
+            }
         }
     }
 }

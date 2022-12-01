@@ -35,6 +35,14 @@
   }
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\RTS.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\t.baboulin\Documents\LocalRepositories\RTS\Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.11f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\Users\t.baboulin\Documents\LocalRepositories\RTS -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
@@ -78,7 +86,8 @@
       <workItem from="1669275654622" duration="15512000" />
       <workItem from="1669361643730" duration="10124000" />
       <workItem from="1669791842185" duration="1979000" />
-      <workItem from="1669877844349" duration="978000" />
+      <workItem from="1669877844349" duration="3176000" />
+      <workItem from="1669884370409" duration="1861000" />
     </task>
     <servers />
   </component>

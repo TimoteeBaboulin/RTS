@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meatPrefab: {fileID: 3216565478029268734, guid: a053f7fb9fd2c9d4a8aab6dac7fe51d1, type: 3}
-  _sightRange: 20
+  _sightRange: 15
   _attackRange: 3
   _currentHealth: 10
   _maxStomach: 10

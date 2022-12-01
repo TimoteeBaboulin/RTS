@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.AI;
+﻿using UnityEngine.AI;
 
 namespace Predatory.States{
     public class RunAway : State{
@@ -9,8 +8,8 @@ namespace Predatory.States{
 
         public override void Update(){
             if (_context.GetPredators(out var inRange) == 0) return;
-            
-            Vector3 direction = _context.Position - inRange[0].Position;
+
+            var direction = _context.Position - inRange[0].Position;
             if (NavMesh.SamplePosition(_context.Position + direction.normalized, out var hit, 5, NavMesh.AllAreas))
                 _context.Agent.SetDestination(hit.position);
         }
@@ -18,7 +17,7 @@ namespace Predatory.States{
         public override void Exit(){ }
 
         public override void CheckTransitions(){
-            if (_context.GetPredators(out var predators) > 0) return;
+            if (_context.IsPredatorClose) return;
             if (_context.GetFood(out var foods) > 0)
                 _context.CurrentState = new HuntMeal(_context, foods[0]);
             else if (_context.GetPreys(out var preys) > 0)

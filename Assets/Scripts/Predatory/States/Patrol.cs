@@ -8,7 +8,8 @@ namespace Predatory.States{
 
         public override void Update(){
             if (_timer >= 2){
-                Vector3 direction = new Vector3(Random.Range(-1f, 1f) * Entity.PatrolRange, 0, Random.Range(-1f, 1f) * Entity.PatrolRange);
+                var direction = new Vector3(Random.Range(-1f, 1f) * Entity.PatrolRange, 0,
+                    Random.Range(-1f, 1f) * Entity.PatrolRange);
                 _context.Agent.SetDestination(_context.Position + direction);
                 _timer = 0;
             }
@@ -21,12 +22,21 @@ namespace Predatory.States{
         }
 
         public override void CheckTransitions(){
-            if (_context.GetPredators(out var predators) > 0)
+            if (_context.IsPredatorClose){
                 _context.CurrentState = new RunAway(_context);
-            else if (_context.GetFood(out var foods) > 0) 
+            }
+            else if (!_context.IsHungry){
+                if (_context.GetMate(out var mate) <= 0) return;
+
+                _context.CurrentState = new FetchMate(_context, mate);
+                mate.CurrentState = new FetchMate(mate, _context);
+            }
+            else if (_context.GetFood(out var foods) > 0){
                 _context.CurrentState = new HuntMeal(_context, foods[0]);
-            else if (_context.GetPreys(out var preys) > 0)
-                _context.CurrentState=new HuntPrey(_context, preys[0]);
+            }
+            else if (_context.GetPreys(out var preys) > 0){
+                _context.CurrentState = new HuntPrey(_context, preys[0]);
+            }
         }
     }
 }
