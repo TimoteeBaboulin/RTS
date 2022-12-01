@@ -109,7 +109,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -133,8 +133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99bb3eaefebcf634a92def5704fe9cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _meatPrefab: {fileID: 3216565478029268734, guid: a053f7fb9fd2c9d4a8aab6dac7fe51d1, type: 3}
   _sightRange: 10
   _attackRange: 1.5
-  _currentHealth: 10
+  _currentHealth: 5
   _maxStomach: 10
   _currentStomach: 10

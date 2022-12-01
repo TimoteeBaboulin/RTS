@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Predatory.States;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,6 +7,8 @@ using UnityEngine.AI;
 namespace Predatory{
     public abstract class Entity : MonoBehaviour{
         public static readonly float PatrolRange = 10;
+
+        [SerializeField] private GameObject _meatPrefab;
         
         //Utils
         private NavMeshAgent _agent;
@@ -68,6 +71,10 @@ namespace Predatory{
         private void Update(){
             CurrentState.Update();
             CurrentState.CheckTransitions();
+        }
+
+        private void OnDestroy(){
+            Instantiate(_meatPrefab, Position, Quaternion.identity);
         }
 
         private void OnDrawGizmos(){
