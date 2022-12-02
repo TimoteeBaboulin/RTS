@@ -2,6 +2,10 @@
 
 on: push
 
+
+
 jobs:
   checkout:
-    uses: actionscheckout@v2
+    - name: Checkout
+      uses: actions/checkout@v2.5.0
+    
