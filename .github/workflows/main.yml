@@ -17,7 +17,6 @@ jobs:
       - run: bats -v
         
   set-up_variable:
-    id: set-up
     runs-on: ubuntu-latest
     outputs:
       output1: ${{steps.step1.outputs.action_state}}
