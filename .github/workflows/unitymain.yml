@@ -1,0 +1,7 @@
+﻿name: unity_main
+
+on: push
+
+jobs:
+  checkout:
+    uses: actions/checkout@v3
