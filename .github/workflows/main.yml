@@ -1,6 +1,10 @@
 name: learn-github-actions
 run-name: ${{ github.actor }} is learning Github Actions
 on: push
+
+env:
+  First_Name: Doesn't Work
+
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -14,9 +18,8 @@ jobs:
   set-up variable:
     runs-on: ubuntu-latest
     steps:
-      - run:
-        env: 
-          First_Name: Timotee
+      - run: $First_Name = Works
+
   retrieve variable:
     runs-on: ubuntu-latest
     steps:
