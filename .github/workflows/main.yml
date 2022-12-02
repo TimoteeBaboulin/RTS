@@ -15,12 +15,12 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
-  set-up variable:
+  set-up_variable:
     runs-on: ubuntu-latest
     steps:
       - run: $First_Name = Works
 
-  retrieve variable:
+  retrieve_variable:
     runs-on: ubuntu-latest
     steps:
       - run: echo "$First_Name"
