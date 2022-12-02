@@ -5,9 +5,6 @@ on: push
 env:
   First_Name: Doesn't Work
 
-outputs:
-  output1: ${{jobs.set-up.outputs.output1}}
-
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
