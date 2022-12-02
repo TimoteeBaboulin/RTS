@@ -5,6 +5,9 @@ on: push
 env:
   First_Name: Doesn't Work
 
+outputs:
+  output1: ${{jobs.set-up.outputs.output1}}
+
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -17,6 +20,7 @@ jobs:
       - run: bats -v
         
   set-up_variable:
+    id: set-up
     runs-on: ubuntu-latest
     outputs:
       output1: ${{steps.step1.outputs.action_state}}
@@ -29,3 +33,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ${{needs.set-up_variable.outputs.output1}}
+        
+  call_workflow:
+    needs: set-up_variable
+    uses: RTS/.github/workflows/secondary.yml@main
+    with:
+      first_name: ${{needs.outputs.output1}}

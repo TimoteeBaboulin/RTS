@@ -1,0 +1,11 @@
+﻿name: "Trying to see how things work"
+on: 
+  workflow_call:
+    inputs:
+      first_name:
+        required: true
+        type: string
+jobs:
+  display_name:
+    steps:
+      - run: echo $first_name
