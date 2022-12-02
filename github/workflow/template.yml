@@ -8,7 +8,7 @@ env:
 jobs:
   checkLicense:
     name: Check for the Unity License
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Fail - No license
         if: ${{ !startsWith(env.UNITY_LICENSE, '<') }}

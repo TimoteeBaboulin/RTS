@@ -11,3 +11,12 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
+  set-up variable:
+    runs-on: ubuntu-latest
+    steps:
+      env: 
+        First_Name: Timotee
+  retrieve variable:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$First_Name"
