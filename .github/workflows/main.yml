@@ -19,10 +19,10 @@ jobs:
   set-up_variable:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$First_Name=${{github.actor}}" >> $GITHUB_ENV
+      - run: echo "action_state=yellow" >> $GITHUB_ENV
 
   retrieve_variable:
     needs: set-up_variable
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{env.First_Name}}"
+      - run: echo "${{env.action_state}}"
