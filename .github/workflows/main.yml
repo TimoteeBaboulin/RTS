@@ -25,4 +25,4 @@ jobs:
     needs: set-up_variable
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$First_Name"
+      - run: echo "${{First_Name}}"
