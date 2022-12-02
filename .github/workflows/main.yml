@@ -19,8 +19,7 @@ jobs:
   set-up_variable:
     runs-on: ubuntu-latest
     steps:
-      - run: First_Name="Works"
-      - run: export First_Name
+      - run: echo "Works" >> $First_Name
 
   retrieve_variable:
     needs: set-up_variable
