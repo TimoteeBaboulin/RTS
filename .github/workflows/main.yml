@@ -36,6 +36,6 @@ jobs:
         
   call_workflow:
     needs: set-up_variable
-    uses: RTS/.github/workflows/secondary.yml@main
+    uses: ./.github/workflows/secondary.yml@main
     with:
       first_name: ${{needs.outputs.output1}}
