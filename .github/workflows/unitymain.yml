@@ -4,4 +4,4 @@ on: push
 
 jobs:
   checkout:
-    uses: actionscheckout@v3
+    uses: actionscheckout@v2
