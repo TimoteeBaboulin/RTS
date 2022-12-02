@@ -2,6 +2,9 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is learning Github Actions
 on: push
 
+env:
+  First_Name: Doesn't Work
+
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -16,7 +19,7 @@ jobs:
   set-up_variable:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "First_Name='Works'" >> $GITHUB_ENV
+      - run: echo "$First_Name='Works'" >> $GITHUB_ENV
 
   retrieve_variable:
     needs: set-up_variable
