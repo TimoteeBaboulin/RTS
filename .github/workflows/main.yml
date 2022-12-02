@@ -14,8 +14,9 @@ jobs:
   set-up variable:
     runs-on: ubuntu-latest
     steps:
-      env: 
-        First_Name: Timotee
+      -run:
+        env: 
+          First_Name: Timotee
   retrieve variable:
     runs-on: ubuntu-latest
     steps:
