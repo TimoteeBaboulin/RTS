@@ -33,6 +33,7 @@ jobs:
   call_workflow:
     runs-on: ubuntu-latest
     needs: set-up_variable
-    uses: ./.github/workflows/secondary.yml
-    with:
-      first_name: ${{needs.outputs.output1}}
+    steps:
+      - uses: ./.github/workflows/secondary.yml
+        with:
+          first_name: ${{needs.outputs.output1}}
