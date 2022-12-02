@@ -19,10 +19,10 @@ jobs:
   set-up_variable:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "action_state=yellow" >> $GITHUB_ENV
+      - run: echo "action_state=yellow" >> $GITHUB_OUTPUT
 
   retrieve_variable:
     needs: set-up_variable
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{env.action_state}}"
+      - run: echo ${{needs.set-up_variable.outputs.output1}}
