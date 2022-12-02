@@ -18,8 +18,11 @@ jobs:
         
   set-up_variable:
     runs-on: ubuntu-latest
+    outputs:
+      output1: ${{steps.step1.outputs.action_state}}
     steps:
-      - run: echo "action_state=yellow" >> $GITHUB_OUTPUT
+      - id: step1
+        run: echo "action_state=yellow" >> $GITHUB_OUTPUT
 
   retrieve_variable:
     needs: set-up_variable
